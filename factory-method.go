@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"design-pattern-go/factory-method"
 )
@@ -14,4 +15,9 @@ func runFactoryMethod() {
 	musket, _ := factoryMethod.GetGun(factoryMethod.MusketGunType)
 	fmt.Println(musket.GetName())
 	fmt.Println(musket.GetPower())
+
+	_, err := factoryMethod.GetGun("toy")
+	if err != nil {
+		log.Printf("error get gun: %v", err)
+	}
 }
